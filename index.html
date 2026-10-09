@@ -76,7 +76,7 @@
       b.classList.toggle('is-taken',taken&&!mine);
       b.disabled=!ready||(taken&&!mine);
       b.textContent=ready?(mine?'Отменить мою бронь ↺':taken?'Уже занят ✓':'Занять подарок ♡')
-        :(taken?'Уже занят · проверяем…':'Проверяем бронь…');
+        :(taken?(mine?'Твоя бронь · проверяем…':'Уже занят · проверяем…'):'Проверяем бронь…');
       if(ready&&!taken&&localStorage.getItem(tokenKey(k)))localStorage.removeItem(tokenKey(k));
     });
     const refresh=()=>refreshPromise||(refreshPromise=(async()=>{
